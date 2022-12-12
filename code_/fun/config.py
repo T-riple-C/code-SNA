@@ -1,6 +1,5 @@
 # config：一些常变量
-# 在cross-project中删除了下述的数据，with-in project没有
-# del ant_1.3:57,synapse_1.0:72,jEdit_4.3:80,log4j_1.2.1:80,pbeans_1.0:80,pbeans_2.0:80,xalan_2.7.0:80
+
 datasets = ['ant_1.4_concat.csv', 'ant_1.5_concat.csv', 'ant_1.6_concat.csv', 'ant_1.7_concat.csv',
             'ivy_2.0_concat.csv', 'jEdit_3.2.1_concat.csv', 'jEdit_4.0_concat.csv', 'jEdit_4.1_concat.csv',
             'jEdit_4.2_concat.csv', 'log4j_1.0.4_concat.csv',
@@ -11,7 +10,7 @@ datasets = ['ant_1.4_concat.csv', 'ant_1.5_concat.csv', 'ant_1.6_concat.csv', 'a
             'xalan_2.5.0_concat.csv', 'xalan_2.6.0_concat.csv', 'xerces_1.2.0_concat.csv',
             'xerces_1.3.0_concat.csv', 'xerces_1.4.4_concat.csv']
 
-# 还是和原数据格式保持一致
+# 原数据格式保持一致列
 cols = ['Size(in)', 'Ties(in)', 'Pairs(in)', 'Densit(in)', 'AvgDis(in)', 'Diamet(in)', 'nWeakC(in)', 'pWeakC(in)',
         '2StepR(in)', '2StepP(in)', 'ReachE(in)', 'Broker(in)', 'nBroke(in)', 'EgoBet(in)', 'nEgoBe(in)', 'Size(out)',
         'Ties(out)', 'Pairs(out)', 'Densit(out)', 'AvgDis(out)', 'Diamet(out)', 'nWeakC(out)', 'pWeakC(out)',
@@ -34,3 +33,6 @@ cols_skesd = ['Size.in.', 'Ties.in.', 'Pairs.in.', 'Densit.in.', 'AvgDis.in.', '
               'Betweenness', 'Eigenvector', 'EffSize.g.', 'Efficie.g.', 'Constra.g.', 'Hierarc.g.', 'Indirec.g.','wmc',
               'dit', 'noc', 'cbo', 'rfc', 'lcom', 'ca', 'npm', 'lcom3', 'loc', 'dam', 'moa', 'mfa', 'cam', 'ic', 'cbm',
               'amc', 'max.cc.', 'avg.cc.']
+
+code_cols = ['wmc', 'dit', 'noc', 'cbo', 'rfc', 'lcom', 'ca', 'npm', 'lcom3', 'loc', 'dam', 'moa', 'mfa', 'cam', 'ic',
+             'cbm', 'amc', 'max(cc)', 'avg(cc)']
