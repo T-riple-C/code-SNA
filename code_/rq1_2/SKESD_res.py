@@ -55,8 +55,10 @@ def multi_res_img(df,tag,model,validation):
             data = data.append(pd.DataFrame(tmp, columns=['roc_auc','acc','mcc', tag]), ignore_index=True)
     # 位置：按照评估指标划分;每种度量集+0.2
     x = {'roc_auc': 1, 'acc': 2, 'mcc': 3}
+    # x = {'AUC-ROC': 1, 'ACC': 2, 'MCC': 3}
     # 按评估指标绘图——rank
     measures = ['roc_auc','acc','mcc']
+    # measures = ['AUC-ROC', 'ACC', 'MCC']
     for m in measures:
         rank = {}
         df = data[[m,tag]]
@@ -83,8 +85,16 @@ def multi_res_img(df,tag,model,validation):
                 plt.plot([x[m]+0.2, x[m]+0.2, x[m]+0.2], cs.iloc[:, 0],marker='^', c=('firebrick' if rank[label] == 1 else 'royalblue'))
         # '''
     # '''
-    plt.xticks(list(x.values()), list(x.keys()))
-    plt.title("SK-ESD-"+validation)
+    for idx in range(0,len(method)):
+        if method[idx] == 'cs_':
+            method[idx] = "With SNA Metrics"
+        elif method[idx] == 'all_code':
+            method[idx] = "With Size Metrics"
+        elif method[idx] == 'code_nosize':
+            method[idx] = "With Code(no Size) Metrics"
+    # plt.xticks(list(x.values()), list(x.keys()))
+    plt.xticks(list(x.values()),['AUC-ROC','ACC','MCC'])
+    # plt.title("SK-ESD-"+validation)
     plt.legend(method, loc='lower left')  # 绘制表示框，左下角绘制
     plt.savefig("../../res/rq1_2-res/"+validation+"/sk_esd/"+model+"_SKESD-Res.png")
     # plt.show()
@@ -93,8 +103,8 @@ def multi_res_img(df,tag,model,validation):
 
 
 if __name__ == '__main__':
-    # validation = "within-project"
-    validation = "cross_project"
+    validation = "within-project"
+    # validation = "cross_project"
     sk = importr('ScottKnottESD')
     tag = 'metrics'
     models = ['rf', 'lr', 'nb', 'xgb', 'svm']
