@@ -87,11 +87,11 @@ def multi_res_img(df,tag,model,validation):
     # '''
     for idx in range(0,len(method)):
         if method[idx] == 'cs_':
-            method[idx] = "With SNA Metrics"
+            method[idx] =  "-Size/+SNA" #"With SNA Metrics"
         elif method[idx] == 'all_code':
-            method[idx] = "With Size Metrics"
+            method[idx] = "+Size/-SNA" # Without SNA Metrics
         elif method[idx] == 'code_nosize':
-            method[idx] = "With Code(no Size) Metrics"
+            method[idx] = "-Size/-SNA" #"With Code(Without Size) Metrics"
     # plt.xticks(list(x.values()), list(x.keys()))
     plt.xticks(list(x.values()),['AUC-ROC','ACC','MCC'])
     # plt.title("SK-ESD-"+validation)
